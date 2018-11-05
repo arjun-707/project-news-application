@@ -20,4 +20,16 @@
 }
 .desc-img {
   height: 235px;
+  width: 430px;
+}
+.news-list-table tbody h6,
+.news-list-table tbody img,
+.news-list-table tbody .glyphicon {
+  cursor: pointer;
+}
+.glyphicon-star {
+  float: right;
+}
+.glyphicon-star:hover, .star-green{
+  color:rgb(12, 141, 34);
 }

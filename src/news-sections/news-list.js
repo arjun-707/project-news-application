@@ -11,8 +11,11 @@ export class NewsList extends Component {
         this.state = {
             selected_news: false,
             description: false,
-            img: false
+            img: false,
+            favourite: '',
+            data: this.data
         }
+        this.addIndex = this.addIndex.bind(this)
     }
     render() {
         return (
@@ -35,19 +38,19 @@ export class NewsList extends Component {
                                                     description: data.content,
                                                     img: data.urlToImage
                                                 };
-                                                return <tr key={index} onClick={this.showNewsDescription} id={index}>
+                                                return <tr key={index} id={index}>
                                                     <td id={index}>
                                                         <div className="row" id={index}>
                                                             <div className="col-md-3" id={index}>
                                                             {
                                                                 data.urlToImage ?
-                                                                    <img src={data.urlToImage} className="news-img" id={index}/>
+                                                                    <img src={data.urlToImage} className="news-img" id={index} onClick={this.showNewsDescription}/>
                                                                 :
                                                                 "no image"
                                                             }
                                                             </div>
                                                             <div className="col-md-9" id={index}>
-                                                                <h6 id={index}>
+                                                                <h6 id={index} onClick={this.showNewsDescription}>
                                                                     {data.title}
                                                                 </h6>
                                                                 <p id={index}>
@@ -58,6 +61,9 @@ export class NewsList extends Component {
                                                                         this.getPublishedDateTime(data.publishedAt) 
                                                                     }
                                                                 </p>
+                                                                <span className={"glyphicon glyphicon-star "+
+                                                                    this.state.data[index].favourite
+                                                                } onClick={this.addIndex} id={index}></span>
                                                             </div>
                                                         </div>
                                                     </td>
@@ -70,12 +76,15 @@ export class NewsList extends Component {
                         :
                         this.props.wait
                     }
-                    <NewsDescription selected_news={this.state.selected_news} description={this.state.description} img={this.state.img}/>
+                    <NewsDescription selected_news={this.state.selected_news} description={this.state.description} img={this.state.img} favourite={this.state.favourite}/>
                 </div>
             </div>
         );
     }
-    
+    addIndex(event) {
+        this.data[event.target.id].favourite = 'glyphicon glyphicon-star star-green';
+        this.showNewsDescription(event);
+    }
     getPublishedDateTime(inputDate) {
         if (inputDate != undefined && inputDate != '') {
             let publDat = new Date(inputDate);
@@ -95,7 +104,9 @@ export class NewsList extends Component {
             {
                 selected_news: this.data[event.target.id].title,
                 description: this.data[event.target.id].description,
-                img:  this.data[event.target.id].img
+                img:  this.data[event.target.id].img,
+                favourite: this.data[event.target.id].favourite,
+                data: this.data
             }
         )
     }

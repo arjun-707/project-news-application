@@ -12,7 +12,7 @@ export class NewsDescription extends Component {
                             <table className="table table-striped news-list-table">
                                 <thead>
                                     <tr>
-                                        <th id={this.props.selected_news}>{this.props.selected_news}</th>
+                                        <th id={this.props.selected_news}>{this.props.selected_news}  <span className={this.props.favourite}></span></th>
                                     </tr>
                                 </thead>
                                 <tbody>

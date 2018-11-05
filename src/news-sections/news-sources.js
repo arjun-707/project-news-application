@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { NewsList } from "./news-list.js";
-import { Button } from 'react-bootstrap';
 
 export class NewsSource extends Component {
     constructor(props) {
@@ -45,7 +44,6 @@ export class NewsSource extends Component {
         );
     }
     fetchNews(event) {
-        console.log(this.props.list)
         let id = event.target.id;
         let text = event.target.innerHTML;
         this.setState({news_list: [], selected_list: ''})
