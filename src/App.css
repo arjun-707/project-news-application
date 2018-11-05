@@ -1,0 +1,23 @@
+.App {
+  text-align: center;
+  width: 100%;
+  height: auto;
+}
+.source {
+  float: left;
+  width: 100%;
+}
+.source-list, .news-list-table {
+  text-align: left;
+}
+.source-list .news-source {
+  width: 250px !important;
+  text-align: left;
+}
+.news-img {
+  height: 80px;
+  width: 100px;
+}
+.desc-img {
+  height: 235px;
+}
