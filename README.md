@@ -7,6 +7,10 @@ This project is a single page application developed in ReactJS. This application
 
 In the project directory, you can run:
 
+### `npm install`
+
+This will install all the dependencies required by the application.
+
 ### `npm start`
 
 Runs the app in the development mode.<br>
