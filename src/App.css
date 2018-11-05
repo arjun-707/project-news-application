@@ -29,6 +29,7 @@
 }
 .glyphicon-star {
   float: right;
+  font-size: 16px;
 }
 .glyphicon-star:hover, .star-green{
   color:rgb(12, 141, 34);

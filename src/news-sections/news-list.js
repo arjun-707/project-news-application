@@ -63,7 +63,7 @@ export class NewsList extends Component {
                                                                 </p>
                                                                 <span className={"glyphicon glyphicon-star "+
                                                                     this.state.data[index].favourite
-                                                                } onClick={this.addIndex} id={index}></span>
+                                                                } onClick={this.addIndex} id={index} data-toggle="tooltip" title="favourite"></span>
                                                             </div>
                                                         </div>
                                                     </td>
